@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Oswald", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand Colors - Logo blue (#1B98F5) as primary */
+  --color-primary-50: #f0f7ff;
+  --color-primary-100: #ddedff;
+  --color-primary-200: #b3dbff;
+  --color-primary-300: #7ac3ff;
+  --color-primary-400: #40aaff;
+  --color-primary-500: #1b98f5;
+  --color-primary-600: #0b7cd6;
+  --color-primary-700: #0862ab;
+  --color-primary-800: #0a4f87;
+  --color-primary-900: #0d4070;
+
+  /* Accent - Logo rose/crimson (#D51D53), used sparingly */
+  --color-accent-50: #fff1f4;
+  --color-accent-100: #ffe0e7;
+  --color-accent-200: #ffc6d4;
+  --color-accent-300: #ffa0b5;
+  --color-accent-400: #ff6b8e;
+  --color-accent-500: #d51d53;
+  --color-accent-600: #bf1249;
+  --color-accent-700: #a10c3e;
+
+  /* Star ratings - warm amber (UX convention) */
+  --color-star-400: #fbbf24;
+  --color-star-500: #f59e0b;
+
+  /* Navy - Dark background tones */
+  --color-navy-800: #1a1f3a;
+  --color-navy-900: #0f1225;
+  --color-navy-950: #0a0d1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global focus styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+html, body {
+  @apply bg-white text-gray-900;
+}
+
+/* Heading font */
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+/* Mobile bottom padding for sticky CTA bar */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: 72px;
+  }
+}
