@@ -10,12 +10,15 @@ import {
   TikTokIcon,
 } from "~/components/icons";
 import { blogPosts } from "~/data/blog-posts";
+import { SITE_URL, BUSINESS_NAME, SOCIAL_LINKS } from "~/data/constants";
+import { WaveDivider } from "~/components/wave-divider";
+import { Breadcrumb } from "~/components/breadcrumb";
 
 export const meta: Route.MetaFunction = () => {
   const title = "Blog | Shine On Autocare | Detailing Tips & News";
   const description =
     "Stay up to date with detailing tips, car care advice, and news from Shine On Autocare. Serving Pleasanton, San Antonio, and South Texas.";
-  const url = "https://www.shineonautocare.com/blog";
+  const url = `${SITE_URL}/blog`;
 
   return [
     { title },
@@ -30,7 +33,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -49,13 +52,7 @@ export default function BlogIndex() {
       <section className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="text-gray-300">Blog</span>
-            </nav>
+            <Breadcrumb items={[{ label: "Blog" }]} />
 
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
               Detailing Tips, News &amp; More
@@ -66,11 +63,7 @@ export default function BlogIndex() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" aria-hidden="true" fill="none" className="w-full">
-            <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-          </svg>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* Featured Post */}
@@ -223,17 +216,17 @@ export default function BlogIndex() {
             {[
               {
                 icon: FacebookIcon,
-                href: "https://facebook.com/shineonautocare",
+                href: SOCIAL_LINKS.facebook,
                 label: "Facebook",
               },
               {
                 icon: InstagramIcon,
-                href: "https://instagram.com/shineonautocare",
+                href: SOCIAL_LINKS.instagram,
                 label: "Instagram",
               },
               {
                 icon: TikTokIcon,
-                href: "https://tiktok.com/@shineonautocare",
+                href: SOCIAL_LINKS.tiktok,
                 label: "TikTok",
               },
             ].map((social) => (

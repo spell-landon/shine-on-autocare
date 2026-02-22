@@ -15,4 +15,10 @@ export default [
   route("services/paint-correction", "routes/services/paint-correction.tsx"),
   route("services/truck-suv-detailing", "routes/services/truck-suv-detailing.tsx"),
   route("services/rv-motorcycle", "routes/services/rv-motorcycle.tsx"),
+  route("services/odor-removal", "routes/services/odor-removal.tsx"),
+  route("services/full-detail", "routes/services/full-detail.tsx"),
+  route("services/rv-detailing", "routes/services/rv-detailing.tsx"),
+  route("services/motorcycle-detailing", "routes/services/motorcycle-detailing.tsx"),
+  route("areas/:slug", "routes/areas.$slug.tsx"),
+  route("veteran-owned", "routes/veteran-owned.tsx"),
 ] satisfies RouteConfig;

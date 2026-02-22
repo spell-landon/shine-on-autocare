@@ -5,13 +5,18 @@ import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
 import { ArrowRightIcon, PhoneIcon } from "~/components/icons";
+import { PHONE, PHONE_HREF, SITE_URL, BUSINESS_NAME } from "~/data/constants";
+import { WaveDivider } from "~/components/wave-divider";
+import { Breadcrumb } from "~/components/breadcrumb";
+import { JsonLd } from "~/components/json-ld";
+import { buildFAQSchema } from "~/data/schema";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "FAQ | Shine On Autocare | Mobile Detailing Questions Answered";
   const description =
     "Got questions about mobile detailing, ceramic coating, or our services? Find answers to the most common questions about Shine On Autocare in Pleasanton & San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/faq";
+  const url = `${SITE_URL}/faq`;
 
   return [
     { title },
@@ -26,7 +31,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -178,8 +183,13 @@ function FAQAccordion({ item }: { item: FAQItem }) {
 }
 
 export default function FAQ() {
+  const allFaqs = faqCategories.flatMap((cat) =>
+    cat.items.map((item) => ({ question: item.question, answer: item.answer }))
+  );
+
   return (
     <>
+      <JsonLd data={buildFAQSchema(allFaqs)} />
       <Header />
       <main id="main-content">
 
@@ -187,13 +197,7 @@ export default function FAQ() {
       <section className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="text-gray-300">FAQ</span>
-            </nav>
+            <Breadcrumb items={[{ label: "FAQ" }]} />
 
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
               Frequently Asked Questions
@@ -204,11 +208,7 @@ export default function FAQ() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" aria-hidden="true" fill="none" className="w-full">
-            <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-          </svg>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* FAQ Content */}
@@ -248,11 +248,11 @@ export default function FAQ() {
               <ArrowRightIcon className="ml-2 w-5 h-5" />
             </Link>
             <a
-              href="tel:+18305699054"
+              href={PHONE_HREF}
               className="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-700 font-semibold text-lg px-8 py-4 rounded-xl transition border border-gray-200 shadow-sm"
             >
               <PhoneIcon className="mr-2 w-5 h-5" />
-              Call (830) 569-9054
+              Call {PHONE}
             </a>
           </div>
         </div>

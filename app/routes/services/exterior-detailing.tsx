@@ -3,13 +3,14 @@ import { ServicePage } from "~/components/service-page";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "Exterior Detailing Pleasanton & San Antonio TX | Shine On Autocare";
   const description =
     "Professional exterior detailing including hand wash, clay bar, machine polish, and premium wax protection. Mobile service in Pleasanton and San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/services/exterior-detailing";
+  const url = `${SITE_URL}/services/exterior-detailing`;
 
   return [
     { title },
@@ -24,7 +25,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -86,6 +87,8 @@ export default function ExteriorDetailing() {
       <Header />
       <main id="main-content">
       <ServicePage
+        slug="exterior-detailing"
+        price="130.00"
         title="Exterior Detailing"
         subtitle="Make Your Paint Look Showroom New"
         description="A drive-through car wash is not going to cut it. Our exterior detailing is a full, hands-on process that cleans, decontaminates, polishes, and protects every surface of your vehicle's exterior. We bring out the original depth and gloss of your paint and leave your wheels, tires, and trim looking their best."
@@ -94,6 +97,24 @@ export default function ExteriorDetailing() {
         pricing="Starting at $185. Price varies by vehicle size and condition."
         formServiceValue="exterior"
         relatedServices={relatedServices}
+        heroImage={{
+          src: "/images/service-interior-exterior.jpg",
+          alt: "2019 Ford Mustang GT gleaming after a full exterior detail",
+        }}
+        gallery={[
+          {
+            src: "https://static.wixstatic.com/media/da9245_dab9149ca8bc42ccb2aaee7c4d47a9c1~mv2.jpg/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_dab9149ca8bc42ccb2aaee7c4d47a9c1~mv2.webp",
+            alt: "Vehicle exterior with a deep glossy shine after hand wash and wax",
+          },
+          {
+            src: "https://static.wixstatic.com/media/da9245_82467032aae94df796e9652734e6608f~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_82467032aae94df796e9652734e6608f~mv2.webp",
+            alt: "Professional auto detail work on vehicle exterior paint",
+          },
+          {
+            src: "/images/service-full-detail.jpg",
+            alt: "2023 Ford F-250 with showroom-quality exterior finish after detailing",
+          },
+        ]}
       />
       </main>
       <Footer />

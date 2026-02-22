@@ -4,6 +4,20 @@ import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
 import { QuoteForm } from "~/components/quote-form";
+import { WaveDivider } from "~/components/wave-divider";
+import { Breadcrumb } from "~/components/breadcrumb";
+import {
+  PHONE,
+  PHONE_HREF,
+  PHONE_2,
+  PHONE_2_HREF,
+  EMAIL,
+  EMAIL_HREF,
+  ADDRESS,
+  CITY_STATE_ZIP,
+  SITE_URL,
+  BUSINESS_NAME,
+} from "~/data/constants";
 import {
   PhoneIcon,
   EmailIcon,
@@ -17,7 +31,7 @@ export const meta: Route.MetaFunction = () => {
     "Contact Us | Shine On Autocare | Pleasanton & San Antonio TX";
   const description =
     "Get in touch with Shine On Autocare for a free detailing or ceramic coating quote. Call, email, or fill out our form. Serving Pleasanton, San Antonio, and surrounding areas.";
-  const url = "https://www.shineonautocare.com/contact";
+  const url = `${SITE_URL}/contact`;
 
   return [
     { title },
@@ -32,7 +46,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -49,13 +63,7 @@ export default function Contact() {
       <section className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="text-gray-300">Contact</span>
-            </nav>
+            <Breadcrumb items={[{ label: "Contact" }]} />
 
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
               Get in Touch
@@ -67,11 +75,7 @@ export default function Contact() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" aria-hidden="true" fill="none" className="w-full">
-            <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-          </svg>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* Contact Info + Form */}
@@ -92,7 +96,7 @@ export default function Contact() {
               <div className="space-y-5">
                 {/* Phone 1 */}
                 <a
-                  href="tel:+18305699054"
+                  href={PHONE_HREF}
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary-200 transition">
@@ -100,7 +104,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 group-hover:text-primary-600 transition">
-                      (830) 569-9054
+                      {PHONE}
                     </p>
                     <p className="text-sm text-gray-400">Call or text anytime</p>
                   </div>
@@ -108,7 +112,7 @@ export default function Contact() {
 
                 {/* Phone 2 */}
                 <a
-                  href="tel:+12103744429"
+                  href={PHONE_2_HREF}
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary-200 transition">
@@ -116,7 +120,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 group-hover:text-primary-600 transition">
-                      (210) 374-4429
+                      {PHONE_2}
                     </p>
                     <p className="text-sm text-gray-400">Call or text anytime</p>
                   </div>
@@ -124,7 +128,7 @@ export default function Contact() {
 
                 {/* Email */}
                 <a
-                  href="mailto:shineonautocare@gmail.com"
+                  href={EMAIL_HREF}
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary-200 transition">
@@ -132,7 +136,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 group-hover:text-primary-600 transition">
-                      shineonautocare@gmail.com
+                      {EMAIL}
                     </p>
                     <p className="text-sm text-gray-400">
                       We respond within 1 hour
@@ -147,10 +151,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900">
-                      1240 W Oaklawn Rd
+                      {ADDRESS}
                     </p>
                     <p className="text-sm text-gray-400">
-                      Pleasanton, TX 78064
+                      {CITY_STATE_ZIP}
                     </p>
                   </div>
                 </div>
@@ -218,7 +222,7 @@ export default function Contact() {
               <MapPinIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <p className="text-gray-400 font-medium">Google Maps Embed</p>
               <p className="text-gray-300 text-sm mt-1">
-                1240 W Oaklawn Rd, Pleasanton, TX 78064
+                {ADDRESS}, {CITY_STATE_ZIP}
               </p>
             </div>
           </div>

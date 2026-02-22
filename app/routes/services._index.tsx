@@ -3,14 +3,17 @@ import { Link } from "react-router";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { WaveDivider } from "~/components/wave-divider";
+import { Breadcrumb } from "~/components/breadcrumb";
 import { ArrowRightIcon, PhoneIcon } from "~/components/icons";
+import { PHONE, PHONE_HREF, SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "Our Services | Shine On Autocare | Mobile Detailing Pleasanton & San Antonio TX";
   const description =
     "Explore our full range of mobile detailing services: interior detailing, exterior detailing, full detail, ceramic coating, paint correction, and odor removal. Serving Pleasanton, San Antonio, and South Texas.";
-  const url = "https://www.shineonautocare.com/services";
+  const url = `${SITE_URL}/services`;
 
   return [
     { title },
@@ -25,7 +28,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -55,7 +58,7 @@ const services = [
       "Our top-tier detail. Everything in the interior and exterior package, plus paint decontamination, single-stage polish, premium sealant, and meticulous finishing touches.",
     price: "Starting @ $330",
     image: "/images/service-full-detail.jpg",
-    href: "/services/ceramic-coating",
+    href: "/services/full-detail",
   },
   {
     title: "Ceramic Coating",
@@ -81,7 +84,25 @@ const services = [
       "Stubborn smells from smoke, pets, food, or mildew? We don't just cover them up. Our deep-cleaning process eliminates odors at the source so your cabin smells fresh again.",
     price: "By Quote",
     image: "/images/service-odor-removal.jpg",
-    href: "/contact",
+    href: "/services/odor-removal",
+  },
+  {
+    title: "RV & Trailer Detailing",
+    description:
+      "Full exterior wash, roof treatment, black streak removal, interior deep clean, and protective coatings for your RV, motorhome, or travel trailer.",
+    price: "By Quote",
+    image: null,
+    gradient: "from-emerald-700 to-emerald-900",
+    href: "/services/rv-detailing",
+  },
+  {
+    title: "Motorcycle Detailing",
+    description:
+      "Chrome polish, paint protection, engine detailing, and full bike wash. We treat every component with the care your ride deserves.",
+    price: "By Quote",
+    image: null,
+    gradient: "from-gray-700 to-gray-900",
+    href: "/services/motorcycle-detailing",
   },
 ];
 
@@ -95,13 +116,7 @@ export default function ServicesIndex() {
       <section className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="text-gray-300">Services</span>
-            </nav>
+            <Breadcrumb items={[{ label: "Services" }]} />
 
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
               Our Detailing Services
@@ -121,20 +136,16 @@ export default function ServicesIndex() {
                 <ArrowRightIcon className="ml-2 w-5 h-5" />
               </Link>
               <a
-                href="tel:+18305699054"
+                href={PHONE_HREF}
                 className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl transition border border-white/20"
               >
                 <PhoneIcon className="mr-2 w-5 h-5" />
-                Call (830) 569-9054
+                Call {PHONE}
               </a>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" aria-hidden="true" fill="none" className="w-full">
-            <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-          </svg>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* Services Grid */}
@@ -142,9 +153,10 @@ export default function ServicesIndex() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service) => (
-              <article
+              <Link
                 key={service.title}
-                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-lg hover:shadow-primary-100/50 transition-all duration-300"
+                to={service.href}
+                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-lg hover:shadow-primary-100/50 transition-all duration-300 block"
               >
                 {/* Image or Gradient Placeholder */}
                 {service.image ? (
@@ -198,16 +210,13 @@ export default function ServicesIndex() {
                     <span className="text-primary-600 font-bold text-sm">
                       {service.price}
                     </span>
-                    <Link
-                      to={service.href}
-                      className="inline-flex items-center text-sm font-semibold text-primary-600 hover:text-primary-700 transition"
-                    >
+                    <span className="inline-flex items-center text-sm font-semibold text-primary-600 group-hover:text-primary-700 transition">
                       Learn More
                       <ArrowRightIcon className="ml-1 w-4 h-4" />
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
@@ -249,10 +258,10 @@ export default function ServicesIndex() {
               <ArrowRightIcon className="ml-2 w-5 h-5" />
             </Link>
             <a
-              href="tel:+18305699054"
+              href={PHONE_HREF}
               className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl transition border border-white/20"
             >
-              Call (830) 569-9054
+              Call {PHONE}
             </a>
           </div>
         </div>

@@ -3,13 +3,14 @@ import { ServicePage } from "~/components/service-page";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "Interior Detailing Pleasanton & San Antonio TX | Shine On Autocare";
   const description =
     "Professional interior detailing that deep cleans every surface inside your vehicle. Seat shampooing, leather conditioning, odor elimination, and more. Mobile service in Pleasanton and San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/services/interior-detailing";
+  const url = `${SITE_URL}/services/interior-detailing`;
 
   return [
     { title },
@@ -24,7 +25,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -86,6 +87,8 @@ export default function InteriorDetailing() {
       <Header />
       <main id="main-content">
       <ServicePage
+        slug="interior-detailing"
+        price="65.00"
         title="Interior Detailing"
         subtitle="Deep Clean Every Surface Inside Your Vehicle"
         description="Over time, your vehicle's interior collects dust, crumbs, spills, pet hair, and odors that regular cleaning just can not reach. Our interior detailing goes beyond a basic vacuum. We deep clean every surface, condition your leather, shampoo your seats, and eliminate odors so your cabin feels brand new again."
@@ -94,6 +97,24 @@ export default function InteriorDetailing() {
         pricing="Starting at $185. Price varies by vehicle size and condition."
         formServiceValue="interior"
         relatedServices={relatedServices}
+        heroImage={{
+          src: "/images/service-interior.jpg",
+          alt: "Clean Jaguar interior after professional detailing in San Antonio",
+        }}
+        gallery={[
+          {
+            src: "https://static.wixstatic.com/media/da9245_497c408217c846bc9c858e14869b7c21~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_497c408217c846bc9c858e14869b7c21~mv2.webp",
+            alt: "Detailed interior shot showing freshly cleaned surfaces and conditioned leather",
+          },
+          {
+            src: "https://static.wixstatic.com/media/da9245_28fa26aecb0643dcb26d8e2bb05220b3~mv2.jpg/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_28fa26aecb0643dcb26d8e2bb05220b3~mv2.webp",
+            alt: "Interior cabin after deep cleaning with spotless dashboard and seats",
+          },
+          {
+            src: "/images/service-odor-removal.jpg",
+            alt: "Professional interior sanitization and deep cleaning in progress",
+          },
+        ]}
       />
       </main>
       <Footer />

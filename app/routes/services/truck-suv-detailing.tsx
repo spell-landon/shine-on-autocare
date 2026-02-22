@@ -3,13 +3,14 @@ import { ServicePage } from "~/components/service-page";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "Truck & SUV Detailing Pleasanton & San Antonio TX | Shine On Autocare";
   const description =
     "Specialized detailing for trucks and SUVs. Truck bed cleaning, running board detail, full interior deep clean, and more. Mobile service in Pleasanton and San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/services/truck-suv-detailing";
+  const url = `${SITE_URL}/services/truck-suv-detailing`;
 
   return [
     { title },
@@ -24,7 +25,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -85,6 +86,8 @@ export default function TruckSuvDetailing() {
       <Header />
       <main id="main-content">
       <ServicePage
+        slug="truck-suv-detailing"
+        price="130.00"
         title="Truck & SUV Detailing"
         subtitle="Specialized Care for Your Larger Vehicles"
         description="Trucks and SUVs need more than a standard detail. They are bigger, they work harder, and they get dirtier. Our truck and SUV detailing is built to handle everything from a muddy ranch truck to a family Suburban. We clean the bed, scrub the running boards, deep clean the interior, and make the exterior shine. If your truck or SUV has been through it, we will bring it back."
@@ -93,6 +96,24 @@ export default function TruckSuvDetailing() {
         pricing="Pricing based on vehicle size and services selected. Contact us for your custom quote."
         formServiceValue="custom"
         relatedServices={relatedServices}
+        heroImage={{
+          src: "/images/service-full-detail.jpg",
+          alt: "2023 Ford F-250 after a complete truck detailing service",
+        }}
+        gallery={[
+          {
+            src: "https://static.wixstatic.com/media/da9245_a8a738d75e51446e97ab4b1e34867e4b~mv2.jpg/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_a8a738d75e51446e97ab4b1e34867e4b~mv2.webp",
+            alt: "Clean truck after professional wash and exterior detail",
+          },
+          {
+            src: "/images/about-team.jpg",
+            alt: "Shine On Autocare team working on a truck detail",
+          },
+          {
+            src: "https://static.wixstatic.com/media/da9245_f48ce4c8c2e542b588a5a9ad1d33d4d4~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_f48ce4c8c2e542b588a5a9ad1d33d4d4~mv2.webp",
+            alt: "Professional vehicle care for trucks and SUVs in South Texas",
+          },
+        ]}
       />
       </main>
       <Footer />

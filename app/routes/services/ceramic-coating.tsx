@@ -3,13 +3,14 @@ import { ServicePage } from "~/components/service-page";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "Ceramic Coating Pleasanton & San Antonio TX | Shine On Autocare";
   const description =
     "Professional ceramic coating with 2-5 years of protection. Hydrophobic finish, UV resistance, and showroom gloss. Veteran-owned mobile service in Pleasanton and San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/services/ceramic-coating";
+  const url = `${SITE_URL}/services/ceramic-coating`;
 
   return [
     { title },
@@ -24,7 +25,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -86,6 +87,8 @@ export default function CeramicCoating() {
       <Header />
       <main id="main-content">
       <ServicePage
+        slug="ceramic-coating"
+        price="1500.00"
         title="Professional Ceramic Coating"
         subtitle="Long-Lasting Protection for Your Vehicle's Paint"
         description="Your vehicle's paint takes a beating every day from UV rays, road grime, bird droppings, and more. Our professional ceramic coating creates an invisible shield that keeps your paint looking fresh for 2 to 5 years. You get a deep, glossy finish with a hydrophobic surface that repels water and contaminants. It is the best long-term investment you can make for your vehicle's appearance."
@@ -94,6 +97,24 @@ export default function CeramicCoating() {
         pricing="Starting at $1,500. Exact pricing depends on vehicle size and condition."
         formServiceValue="ceramic"
         relatedServices={relatedServices}
+        heroImage={{
+          src: "/images/hero-poster.jpg",
+          alt: "Professional ceramic coating application on a vehicle in San Antonio",
+        }}
+        gallery={[
+          {
+            src: "https://static.wixstatic.com/media/da9245_dab9149ca8bc42ccb2aaee7c4d47a9c1~mv2.jpg/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_dab9149ca8bc42ccb2aaee7c4d47a9c1~mv2.webp",
+            alt: "Glossy exterior shine after ceramic coating treatment",
+          },
+          {
+            src: "/images/service-interior-exterior.jpg",
+            alt: "2019 Ford Mustang GT with a flawless ceramic-coated finish",
+          },
+          {
+            src: "https://static.wixstatic.com/media/da9245_5cb5bc21226c41629ad7b2178f2e079a~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_5cb5bc21226c41629ad7b2178f2e079a~mv2.webp",
+            alt: "Pristine vehicle paint protected by professional ceramic coating",
+          },
+        ]}
       />
       </main>
       <Footer />

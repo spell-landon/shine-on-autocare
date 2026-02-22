@@ -8,6 +8,14 @@ import {
   TikTokIcon,
   YelpIcon,
 } from "./icons";
+import {
+  PHONE,
+  PHONE_HREF,
+  EMAIL,
+  EMAIL_HREF,
+  CITY_STATE_ZIP,
+  SOCIAL_LINKS,
+} from "~/data/constants";
 
 export function Footer() {
   return (
@@ -24,22 +32,22 @@ export function Footer() {
               {[
                 {
                   icon: FacebookIcon,
-                  href: "https://facebook.com/shineonautocare",
+                  href: SOCIAL_LINKS.facebook,
                   label: "Facebook",
                 },
                 {
                   icon: InstagramIcon,
-                  href: "https://instagram.com/shineonautocare",
+                  href: SOCIAL_LINKS.instagram,
                   label: "Instagram",
                 },
                 {
                   icon: TikTokIcon,
-                  href: "https://tiktok.com/@shineonautocare",
+                  href: SOCIAL_LINKS.tiktok,
                   label: "TikTok",
                 },
                 {
                   icon: YelpIcon,
-                  href: "https://www.yelp.com/biz/shine-on-autocare-pleasanton",
+                  href: SOCIAL_LINKS.yelp,
                   label: "Yelp",
                 },
               ].map((social) => (
@@ -60,7 +68,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-4">
@@ -89,7 +97,9 @@ export function Footer() {
                 ["/services/exterior-detailing", "Exterior Detailing"],
                 ["/services/paint-correction", "Paint Correction"],
                 ["/services/truck-suv-detailing", "Truck & SUV Detail"],
-                ["/services/rv-motorcycle", "RV & Motorcycle"],
+                ["/services/rv-detailing", "RV Detailing"],
+                ["/services/motorcycle-detailing", "Motorcycle Detail"],
+                ["/services/odor-removal", "Odor Removal"],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link to={href} className="hover:text-white transition">
@@ -123,6 +133,31 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Service Areas */}
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">
+              Service Areas
+            </h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              {[
+                ["/areas/pleasanton-tx", "Pleasanton"],
+                ["/areas/san-antonio-tx", "San Antonio"],
+                ["/areas/jourdanton-tx", "Jourdanton"],
+                ["/areas/floresville-tx", "Floresville"],
+                ["/areas/poteet-tx", "Poteet"],
+                ["/areas/lytle-tx", "Lytle"],
+                ["/areas/devine-tx", "Devine"],
+                ["/areas/atascosa-county", "Atascosa County"],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link to={href} className="hover:text-white transition">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">
@@ -132,24 +167,24 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <PhoneIcon className="w-4 h-4 text-primary-400 shrink-0" />
                 <a
-                  href="tel:+18305699054"
+                  href={PHONE_HREF}
                   className="hover:text-white transition"
                 >
-                  (830) 569-9054
+                  {PHONE}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <EmailIcon className="w-4 h-4 text-primary-400 shrink-0" />
+              <li className="flex items-start gap-2">
+                <EmailIcon className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <a
-                  href="mailto:shineonautocare@gmail.com"
-                  className="hover:text-white transition"
+                  href={EMAIL_HREF}
+                  className="hover:text-white transition break-all"
                 >
-                  shineonautocare@gmail.com
+                  {EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPinIcon className="w-4 h-4 text-primary-400 shrink-0" />
-                Pleasanton, TX 78064
+                {CITY_STATE_ZIP}
               </li>
             </ul>
           </div>

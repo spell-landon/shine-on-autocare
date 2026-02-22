@@ -4,6 +4,8 @@ import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
 import { QuoteForm } from "~/components/quote-form";
+import { WaveDivider } from "~/components/wave-divider";
+import { StarRating } from "~/components/star-rating";
 import {
   StarIcon,
   ArrowRightIcon,
@@ -17,6 +19,17 @@ import {
   ThumbsUpIcon,
   EmailIcon,
 } from "~/components/icons";
+import {
+  PHONE,
+  PHONE_HREF,
+  EMAIL,
+  EMAIL_HREF,
+  SITE_URL,
+  BUSINESS_NAME,
+  ADDRESS,
+  CITY_STATE_ZIP,
+  SOCIAL_LINKS,
+} from "~/data/constants";
 
 // ─── SEO Meta Tags ───────────────────────────────────────────────────────────
 export const meta: Route.MetaFunction = () => {
@@ -24,7 +37,6 @@ export const meta: Route.MetaFunction = () => {
     "Shine On Autocare | Mobile Auto Detailing & Ceramic Coating | Pleasanton & San Antonio, TX";
   const description =
     "Veteran-owned mobile auto detailing serving Pleasanton, San Antonio and surrounding areas. Ceramic coating, paint correction, interior and exterior detailing. We come to you. Call for a free quote!";
-  const url = "https://www.shineonautocare.com";
 
   return [
     { title },
@@ -37,11 +49,11 @@ export const meta: Route.MetaFunction = () => {
 
     // Open Graph
     { property: "og:type", content: "website" },
-    { property: "og:url", content: url },
+    { property: "og:url", content: SITE_URL },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
 
     // Twitter Card
     { name: "twitter:card", content: "summary_large_image" },
@@ -54,15 +66,15 @@ export const meta: Route.MetaFunction = () => {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
-  name: "Shine On Autocare",
+  name: BUSINESS_NAME,
   description:
     "Veteran-owned mobile auto detailing and ceramic coating service serving Pleasanton, San Antonio, and surrounding areas in South Texas.",
-  url: "https://www.shineonautocare.com",
+  url: SITE_URL,
   telephone: "+1-830-569-9054",
-  email: "shineonautocare@gmail.com",
+  email: EMAIL,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1240 W Oaklawn Rd",
+    streetAddress: ADDRESS,
     addressLocality: "Pleasanton",
     addressRegion: "TX",
     postalCode: "78064",
@@ -145,7 +157,12 @@ const jsonLd = {
     "Odor Removal",
   ],
   priceRange: "$$",
-  sameAs: [],
+  sameAs: [
+    SOCIAL_LINKS.facebook,
+    SOCIAL_LINKS.instagram,
+    SOCIAL_LINKS.tiktok,
+    SOCIAL_LINKS.yelp,
+  ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -219,12 +236,15 @@ function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 rounded-full px-4 py-1.5 mb-6">
+          <Link
+            to="/veteran-owned"
+            className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 hover:bg-primary-500/20 rounded-full px-4 py-1.5 mb-6 transition"
+          >
             <StarIcon className="w-4 h-4 text-primary-300" />
             <span className="text-primary-300 text-sm font-semibold">
               Veteran-Owned &amp; Operated
             </span>
-          </div>
+          </Link>
 
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
             Mobile Auto Detailing
@@ -249,19 +269,17 @@ function Hero() {
               <ArrowRightIcon className="ml-2 w-5 h-5" />
             </Link>
             <a
-              href="tel:+18305699054"
+              href={PHONE_HREF}
               className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl transition border border-white/20"
             >
               <PhoneIcon className="mr-2 w-5 h-5" />
-              Call (830) 569-9054
+              Call {PHONE}
             </a>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-400">
             <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} className="w-5 h-5 text-star-400" />
-              ))}
+              <StarRating color="text-star-400" />
               <span className="ml-2 text-white font-semibold">5.0</span>
             </div>
             <span className="text-gray-500 hidden sm:inline">|</span>
@@ -272,16 +290,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 60"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-        </svg>
-      </div>
+      <WaveDivider />
     </section>
   );
 }
@@ -302,9 +311,9 @@ function TrustBar() {
           {items.map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-3 sm:gap-4 bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-100"
+              className="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left bg-gray-50 rounded-xl p-5 sm:p-6 border border-gray-100"
             >
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-3 sm:mb-0 sm:mr-4 shrink-0">
                 <item.icon className="w-6 h-6 text-primary-600" />
               </div>
               <div>
@@ -342,7 +351,7 @@ function Services() {
       image: "/images/service-interior-exterior.jpg",
       imageAlt: "2019 Ford Mustang GT after full detail",
       features: ["Full Interior Clean", "Hand Wash & Dry", "Wax Protection"],
-      href: "/services/interior-exterior-detailing",
+      href: "/services/exterior-detailing",
     },
     {
       title: "Full Detailing Premium",
@@ -352,7 +361,7 @@ function Services() {
       image: "/images/service-full-detail.jpg",
       imageAlt: "2023 Ford F-250 premium detail",
       features: ["Paint Correction", "Full Interior", "Premium Sealant"],
-      href: "/services/full-detailing-premium",
+      href: "/services/full-detail",
     },
     {
       title: "Odor Removal",
@@ -463,7 +472,7 @@ function Services() {
 
 // ─── Ceramic Coating (Featured Service) ──────────────────────────────────────
 function CeramicCoating() {
-  const benefits = [
+  const highlights = [
     {
       title: "Years of Protection",
       description:
@@ -486,14 +495,23 @@ function CeramicCoating() {
     },
   ];
 
+  const included = [
+    "Full vehicle wash & clay bar",
+    "Paint correction (swirl & scratch removal)",
+    "Professional ceramic coating application",
+    "Interior detail included",
+    "2-5 year protection warranty",
+    "Hydrophobic water-repellent finish",
+  ];
+
   return (
     <section
       id="ceramic-coating"
       className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left content */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left — Description & Highlights */}
           <div>
             <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 rounded-full px-4 py-1.5 mb-4">
               <span className="text-primary-600 text-sm font-bold uppercase tracking-wider">
@@ -505,86 +523,62 @@ function CeramicCoating() {
             </h2>
             <p className="mt-4 text-lg text-gray-500 leading-relaxed">
               The ultimate protection for your vehicle's paint. Our
-              professional-grade ceramic coating creates an invisible,
-              rock-hard layer that repels water, dirt, and contaminants, keeping
+              professional-grade ceramic coating creates an invisible, rock-hard
+              layer that repels water, dirt, and contaminants &mdash; keeping
               your vehicle looking brand new for years.
             </p>
 
-            <div className="mt-8 grid sm:grid-cols-2 gap-6">
-              {benefits.map((b) => (
-                <div key={b.title}>
-                  <div className="flex items-center gap-2 mb-1">
-                    <CheckCircleIcon className="w-5 h-5 text-green-500 shrink-0" />
+            <div className="mt-8 grid sm:grid-cols-2 gap-4">
+              {highlights.map((b) => (
+                <div key={b.title} className="flex gap-3">
+                  <CheckCircleIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                  <div>
                     <h3 className="font-display font-bold text-gray-900 text-sm">
                       {b.title}
                     </h3>
+                    <p className="text-sm text-gray-500 leading-relaxed mt-0.5">
+                      {b.description}
+                    </p>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed pl-7">
-                    {b.description}
-                  </p>
                 </div>
               ))}
             </div>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Link
-                to="/services/ceramic-coating"
-                className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-primary-600/25"
-              >
-                Get a Ceramic Coating Quote
-                <ArrowRightIcon className="ml-2 w-5 h-5" />
-              </Link>
-              <span className="text-sm text-gray-400">
-                Starting at $1,500 &middot; Mobile service available
-              </span>
-            </div>
           </div>
 
-          {/* Right visual card */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-navy-900 to-navy-950 rounded-2xl p-8 sm:p-10 text-white shadow-2xl">
-              <div className="absolute -top-3 -right-3 bg-primary-400 text-navy-950 text-xs font-extrabold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg">
-                Most Popular
+          {/* Right — What's Included Card */}
+          <div className="bg-gradient-to-br from-navy-900 to-navy-950 rounded-2xl p-8 sm:p-10 text-white shadow-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <ShieldIcon className="w-10 h-10 text-primary-400" />
+              <div>
+                <h3 className="font-display text-xl font-extrabold">
+                  What's Included
+                </h3>
+                <p className="text-sm text-gray-400">
+                  Full ceramic coating package
+                </p>
               </div>
-              <ShieldIcon className="w-12 h-12 text-primary-400 mb-6" />
-              <h3 className="font-display text-2xl font-extrabold mb-2">
-                Ceramic Coating Package
-              </h3>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Full paint decontamination, single-stage paint correction,
-                and professional ceramic coating application with multi-year
-                warranty.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Full vehicle wash & clay bar",
-                  "Paint correction (swirl & scratch removal)",
-                  "Professional ceramic coating application",
-                  "Interior detail included",
-                  "2-5 year protection warranty",
-                  "Hydrophobic water-repellent finish",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 text-sm text-gray-300"
-                  >
-                    <CheckCircleIcon className="w-4 h-4 text-primary-400 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex items-end gap-2 mb-6">
-                <span className="font-display text-4xl font-extrabold text-white">
-                  $1,500
-                </span>
-                <span className="text-gray-400 text-sm mb-1">starting at</span>
-              </div>
+            </div>
+            <ul className="space-y-3 mb-8">
+              {included.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-sm text-gray-300"
+                >
+                  <CheckCircleIcon className="w-4 h-4 text-primary-400 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
-                to="/contact"
-                className="block text-center bg-primary-600 hover:bg-primary-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-primary-600/25"
+                to="/services/ceramic-coating"
+                className="w-full sm:w-auto text-center bg-primary-600 hover:bg-primary-500 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-primary-600/25"
               >
-                Request a Quote
+                Get a Ceramic Coating Quote
               </Link>
+              <span className="text-sm text-gray-400">
+                Starting at $1,500
+              </span>
             </div>
           </div>
         </div>
@@ -681,14 +675,7 @@ function WhyChooseUs() {
 
             <div className="mt-8 pt-8 border-t border-gray-100">
               <div className="flex items-center gap-3 justify-center">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      className="w-5 h-5 text-star-500"
-                    />
-                  ))}
-                </div>
+                <StarRating />
                 <span className="text-sm text-gray-600 font-medium">
                   5-Star Rated on Yelp
                 </span>
@@ -806,13 +793,8 @@ function Testimonials() {
               key={review.name}
               className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100"
             >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    className="w-5 h-5 text-star-500"
-                  />
-                ))}
+              <div className="mb-4">
+                <StarRating />
               </div>
               <blockquote className="text-gray-600 leading-relaxed mb-4">
                 &ldquo;{review.text}&rdquo;
@@ -834,18 +816,18 @@ function Testimonials() {
 // ─── Service Area ────────────────────────────────────────────────────────────
 function ServiceArea() {
   const areas = [
-    "San Antonio",
-    "Pleasanton",
-    "Jourdanton",
-    "Poteet",
-    "Floresville",
-    "Karnes City",
-    "Pearsall",
-    "Devine",
-    "Lytle",
-    "Somerset",
-    "Atascosa County",
-    "Wilson County",
+    { name: "San Antonio", slug: "san-antonio-tx" },
+    { name: "Pleasanton", slug: "pleasanton-tx" },
+    { name: "Jourdanton", slug: "jourdanton-tx" },
+    { name: "Poteet", slug: "poteet-tx" },
+    { name: "Floresville", slug: "floresville-tx" },
+    { name: "Karnes City", slug: null },
+    { name: "Pearsall", slug: null },
+    { name: "Devine", slug: "devine-tx" },
+    { name: "Lytle", slug: "lytle-tx" },
+    { name: "Somerset", slug: null },
+    { name: "Atascosa County", slug: "atascosa-county" },
+    { name: "Wilson County", slug: null },
   ];
 
   return (
@@ -869,15 +851,26 @@ function ServiceArea() {
             </p>
 
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {areas.map((area) => (
-                <div
-                  key={area}
-                  className="flex items-center gap-2 text-sm text-gray-600"
-                >
-                  <MapPinIcon className="w-4 h-4 text-primary-500 shrink-0" />
-                  {area}
-                </div>
-              ))}
+              {areas.map((area) =>
+                area.slug ? (
+                  <Link
+                    key={area.name}
+                    to={`/areas/${area.slug}`}
+                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary-600 transition"
+                  >
+                    <MapPinIcon className="w-4 h-4 text-primary-500 shrink-0" />
+                    {area.name}
+                  </Link>
+                ) : (
+                  <div
+                    key={area.name}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
+                    <MapPinIcon className="w-4 h-4 text-primary-500 shrink-0" />
+                    {area.name}
+                  </div>
+                )
+              )}
             </div>
 
             <p className="mt-6 text-sm text-gray-400">
@@ -890,7 +883,7 @@ function ServiceArea() {
               <MapPinIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <p className="text-gray-400 font-medium">Google Maps Embed</p>
               <p className="text-gray-300 text-sm mt-1">
-                Pleasanton, TX 78064 &middot; 50-Mile Radius
+                {CITY_STATE_ZIP} &middot; 50-Mile Radius
               </p>
             </div>
           </div>
@@ -920,26 +913,26 @@ function CTASection() {
 
             <div className="mt-8 space-y-4">
               <a
-                href="tel:+18305699054"
+                href={PHONE_HREF}
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition"
               >
                 <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
                   <PhoneIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-medium">(830) 569-9054</p>
+                  <p className="font-medium">{PHONE}</p>
                   <p className="text-xs text-gray-500">Call or text anytime</p>
                 </div>
               </a>
               <a
-                href="mailto:shineonautocare@gmail.com"
+                href={EMAIL_HREF}
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition"
               >
                 <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
                   <EmailIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-medium">shineonautocare@gmail.com</p>
+                  <p className="font-medium">{EMAIL}</p>
                   <p className="text-xs text-gray-500">
                     We respond within 1 hour
                   </p>
@@ -950,7 +943,7 @@ function CTASection() {
                   <MapPinIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-medium">Pleasanton, TX 78064</p>
+                  <p className="font-medium">{CITY_STATE_ZIP}</p>
                   <p className="text-xs text-gray-500">
                     Serving SA &amp; surrounding areas
                   </p>

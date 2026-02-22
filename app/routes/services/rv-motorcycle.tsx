@@ -3,13 +3,14 @@ import { ServicePage } from "~/components/service-page";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "RV & Motorcycle Detailing Pleasanton & San Antonio TX | Shine On Autocare";
   const description =
     "Expert detailing for RVs and motorcycles. Full exterior wash, roof treatment, chrome polish, and protective coatings. Mobile service in Pleasanton and San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/services/rv-motorcycle";
+  const url = `${SITE_URL}/services/rv-motorcycle`;
 
   return [
     { title },
@@ -24,7 +25,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -85,6 +86,7 @@ export default function RvMotorcycleDetailing() {
       <Header />
       <main id="main-content">
       <ServicePage
+        slug="rv-motorcycle"
         title="RV & Motorcycle Detailing"
         subtitle="Expert Care for Your Recreational Vehicles"
         description="Your RV and motorcycle are built for good times, and they deserve to look the part. Whether you need your motorhome cleaned up after a long road trip or your bike polished for the weekend, we handle it with the same attention to detail we give every vehicle. We use the right products for each material and surface, so nothing gets damaged in the process."
@@ -93,6 +95,24 @@ export default function RvMotorcycleDetailing() {
         pricing="Pricing varies by vehicle type and size. Contact us for a personalized quote."
         formServiceValue="custom"
         relatedServices={relatedServices}
+        heroImage={{
+          src: "/images/about-van.jpg",
+          alt: "Shine On Autocare mobile detailing van ready for RV and motorcycle service",
+        }}
+        gallery={[
+          {
+            src: "https://static.wixstatic.com/media/da9245_9f82acb57d764c14a016fe0c9d58f2b4~mv2.jpg/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_9f82acb57d764c14a016fe0c9d58f2b4~mv2.webp",
+            alt: "Shine On Autocare mobile van arriving for an RV detailing appointment",
+          },
+          {
+            src: "https://static.wixstatic.com/media/da9245_87ef88e773fe4360b6f51d45575778cb~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_87ef88e773fe4360b6f51d45575778cb~mv2.webp",
+            alt: "Mobile detailing setup for RV and motorcycle service in Pleasanton",
+          },
+          {
+            src: "/images/about-garage.jpg",
+            alt: "Shine On Autocare workspace equipped for recreational vehicle detailing",
+          },
+        ]}
       />
       </main>
       <Footer />

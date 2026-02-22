@@ -1,10 +1,21 @@
 import { Link } from "react-router";
-import { CheckCircleIcon, ArrowRightIcon, StarIcon, PhoneIcon } from "./icons";
+import { CheckCircleIcon, ArrowRightIcon, PhoneIcon } from "./icons";
 import { QuoteForm } from "./quote-form";
+import { WaveDivider } from "./wave-divider";
+import { Breadcrumb } from "./breadcrumb";
+import { StarRating } from "./star-rating";
+import { PHONE, PHONE_HREF, SITE_URL, BUSINESS_NAME } from "~/data/constants";
+import { JsonLd } from "~/components/json-ld";
+import { buildServiceSchema } from "~/data/schema";
 
 interface ServiceFeature {
   title: string;
   description: string;
+}
+
+interface ServiceImage {
+  src: string;
+  alt: string;
 }
 
 interface ServicePageProps {
@@ -16,6 +27,10 @@ interface ServicePageProps {
   pricing: string;
   formServiceValue: string;
   relatedServices: Array<{ href: string; label: string }>;
+  slug: string;
+  price?: string;
+  heroImage?: ServiceImage;
+  gallery?: ServiceImage[];
 }
 
 export function ServicePage({
@@ -27,57 +42,75 @@ export function ServicePage({
   pricing,
   formServiceValue,
   relatedServices,
+  slug,
+  price,
+  heroImage,
+  gallery,
 }: ServicePageProps) {
   return (
     <>
+      <JsonLd
+        data={buildServiceSchema({
+          name: title,
+          description,
+          url: `${SITE_URL}/services/${slug}`,
+          price,
+        })}
+      />
       {/* Hero */}
       <section className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span>/</span>
-              <Link to="/services" className="hover:text-white transition">
-                Services
-              </Link>
-              <span>/</span>
-              <span className="text-gray-300">{title}</span>
-            </nav>
+          <div className={heroImage ? "grid lg:grid-cols-2 gap-12 lg:gap-16 items-center" : ""}>
+            <div className={heroImage ? "" : "max-w-3xl"}>
+              <Breadcrumb
+                items={[
+                  { label: "Services", href: "/services" },
+                  { label: title },
+                ]}
+              />
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-              {title}
-            </h1>
-            <p className="mt-2 text-lg sm:text-xl text-primary-400 font-semibold">
-              {subtitle}
-            </p>
-            <p className="mt-4 text-lg text-gray-300 leading-relaxed max-w-2xl">
-              {description}
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#quote-form"
-                className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-500 text-white font-bold text-lg px-8 py-4 rounded-xl transition shadow-lg shadow-primary-600/25"
-              >
-                Get a Free Quote
-                <ArrowRightIcon className="ml-2 w-5 h-5" />
-              </a>
-              <a
-                href="tel:+18305699054"
-                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl transition border border-white/20"
-              >
-                <PhoneIcon className="mr-2 w-5 h-5" />
-                Call (830) 569-9054
-              </a>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+                {title}
+              </h1>
+              <p className="mt-2 text-lg sm:text-xl text-primary-400 font-semibold">
+                {subtitle}
+              </p>
+              <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+                {description}
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#quote-form"
+                  className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-500 text-white font-bold text-lg px-8 py-4 rounded-xl transition shadow-lg shadow-primary-600/25"
+                >
+                  Get a Free Quote
+                  <ArrowRightIcon className="ml-2 w-5 h-5" />
+                </a>
+                <a
+                  href={PHONE_HREF}
+                  className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl transition border border-white/20"
+                >
+                  <PhoneIcon className="mr-2 w-5 h-5" />
+                  Call {PHONE}
+                </a>
+              </div>
             </div>
+
+            {heroImage && (
+              <div className="hidden lg:block">
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <img
+                    src={heroImage.src}
+                    alt={heroImage.alt}
+                    className="w-full h-80 xl:h-96 object-cover"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" aria-hidden="true" fill="none" className="w-full">
-            <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-          </svg>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* What's Included */}
@@ -108,8 +141,39 @@ export function ServicePage({
         </div>
       </section>
 
+      {/* Gallery */}
+      {gallery && gallery.length > 0 && (
+        <section className="py-16 sm:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                Our Work
+              </h2>
+              <p className="mt-4 text-lg text-gray-500">
+                Real results from real vehicles we've serviced across South Texas.
+              </p>
+            </div>
+            <div className={`grid gap-4 sm:gap-6 ${gallery.length === 2 ? "sm:grid-cols-2" : gallery.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}>
+              {gallery.map((img, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl overflow-hidden shadow-md border border-gray-100"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-56 sm:h-64 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Our Process */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      <section className={`py-16 sm:py-20 ${gallery && gallery.length > 0 ? "bg-white" : "bg-gray-50"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
@@ -135,12 +199,10 @@ export function ServicePage({
       </section>
 
       {/* Trust / Review Snippet */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className={`py-12 sm:py-16 ${gallery && gallery.length > 0 ? "bg-gray-50" : "bg-white"}`}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center gap-1 mb-4">
-            {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} className="w-6 h-6 text-star-500" />
-            ))}
+          <div className="flex justify-center mb-4">
+            <StarRating size="w-6 h-6" />
           </div>
           <p className="text-lg text-gray-600 italic leading-relaxed">
             "Veteran-owned, professional, on time, and the results speak for

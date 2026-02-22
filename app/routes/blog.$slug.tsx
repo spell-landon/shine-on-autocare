@@ -4,7 +4,11 @@ import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
 import { ArrowRightIcon } from "~/components/icons";
-import { getBlogPost, blogPosts } from "~/data/blog-posts";
+import { getBlogPost, blogPosts, type BlogContentBlock } from "~/data/blog-posts";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
+import { WaveDivider } from "~/components/wave-divider";
+import { JsonLd } from "~/components/json-ld";
+import { buildArticleSchema } from "~/data/schema";
 
 export const loader = ({ params }: Route.LoaderArgs) => {
   const post = getBlogPost(params.slug);
@@ -18,7 +22,7 @@ export const meta = ({ data }: Route.MetaArgs) => {
   if (!data?.post) return [{ title: "Post Not Found | Shine On Autocare" }];
 
   const { post } = data;
-  const url = `https://www.shineonautocare.com/blog/${post.slug}`;
+  const url = `${SITE_URL}/blog/${post.slug}`;
 
   return [
     { title: `${post.title} | Shine On Autocare Blog` },
@@ -29,12 +33,65 @@ export const meta = ({ data }: Route.MetaArgs) => {
     { property: "og:description", content: post.excerpt },
     { property: "og:image", content: post.image },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: post.title },
     { name: "twitter:description", content: post.excerpt },
   ];
 };
+
+function renderContentBlock(block: BlogContentBlock, i: number) {
+  switch (block.type) {
+    case "heading":
+      return block.level === 2 ? (
+        <h2
+          key={i}
+          className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mt-10 mb-4"
+        >
+          {block.text}
+        </h2>
+      ) : (
+        <h3
+          key={i}
+          className="font-display text-xl sm:text-2xl font-bold text-gray-900 tracking-tight mt-8 mb-3"
+        >
+          {block.text}
+        </h3>
+      );
+    case "list":
+      return block.ordered ? (
+        <ol key={i} className="list-decimal list-inside space-y-2 mb-6 text-gray-600">
+          {block.items.map((item, j) => (
+            <li key={j} className="leading-relaxed">{item}</li>
+          ))}
+        </ol>
+      ) : (
+        <ul key={i} className="list-disc list-inside space-y-2 mb-6 text-gray-600">
+          {block.items.map((item, j) => (
+            <li key={j} className="leading-relaxed">{item}</li>
+          ))}
+        </ul>
+      );
+    case "callout":
+      return (
+        <div
+          key={i}
+          className="my-8 p-6 bg-primary-50 border border-primary-100 rounded-2xl"
+        >
+          <p className="text-primary-900 font-medium leading-relaxed">
+            {block.text}
+          </p>
+        </div>
+      );
+    case "paragraph":
+    default:
+      return (
+        <p key={i} className="text-gray-600 leading-relaxed mb-6">
+          {block.text}
+        </p>
+      );
+  }
+}
 
 export default function BlogPost({ loaderData }: Route.ComponentProps) {
   const { post } = loaderData;
@@ -47,6 +104,16 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
+      <JsonLd
+        data={buildArticleSchema({
+          title: post.title,
+          description: post.excerpt,
+          url: `${SITE_URL}/blog/${post.slug}`,
+          image: post.image,
+          datePublished: post.date,
+          author: post.author,
+        })}
+      />
       <Header />
       <main id="main-content">
 
@@ -91,17 +158,13 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" aria-hidden="true" fill="none" className="w-full">
-            <path d="M0 60h1440V30C1200 60 240 0 0 30v30z" fill="white" />
-          </svg>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* Featured Image */}
-      <section className="bg-white">
+      <section className="py-8 sm:py-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl overflow-hidden shadow-lg -mt-4">
+          <div className="rounded-2xl overflow-hidden shadow-lg">
             <img
               src={post.image}
               alt={post.title}
@@ -117,14 +180,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {post.content.length > 0 ? (
             <div className="prose prose-lg max-w-none">
-              {post.content.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-gray-600 leading-relaxed mb-6"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              {post.content.map((block, i) => renderContentBlock(block, i))}
             </div>
           ) : (
             <div className="text-center py-12">

@@ -3,13 +3,14 @@ import { ServicePage } from "~/components/service-page";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { MobileCTABar } from "~/components/mobile-cta-bar";
+import { SITE_URL, BUSINESS_NAME } from "~/data/constants";
 
 export const meta: Route.MetaFunction = () => {
   const title =
     "Paint Correction Pleasanton & San Antonio TX | Shine On Autocare";
   const description =
     "Professional paint correction to remove swirl marks, scratches, and oxidation. Restore your vehicle's original shine. Mobile service in Pleasanton and San Antonio, TX.";
-  const url = "https://www.shineonautocare.com/services/paint-correction";
+  const url = `${SITE_URL}/services/paint-correction`;
 
   return [
     { title },
@@ -24,7 +25,7 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:locale", content: "en_US" },
-    { property: "og:site_name", content: "Shine On Autocare" },
+    { property: "og:site_name", content: BUSINESS_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
@@ -86,6 +87,7 @@ export default function PaintCorrection() {
       <Header />
       <main id="main-content">
       <ServicePage
+        slug="paint-correction"
         title="Paint Correction"
         subtitle="Remove Swirls, Scratches, and Oxidation"
         description="If your paint is covered in swirl marks, fine scratches, or has started to look dull and faded, paint correction is what you need. This is not a quick polish. It is a careful, multi-step process that removes defects from your clear coat and restores the true depth and clarity of your paint. The results speak for themselves."
@@ -94,6 +96,24 @@ export default function PaintCorrection() {
         pricing="Pricing depends on vehicle size and paint condition. Contact us for a custom quote."
         formServiceValue="paint-correction"
         relatedServices={relatedServices}
+        heroImage={{
+          src: "/images/service-full-detail.jpg",
+          alt: "2023 Ford F-250 with flawless paint after professional correction",
+        }}
+        gallery={[
+          {
+            src: "https://static.wixstatic.com/media/da9245_5cb5bc21226c41629ad7b2178f2e079a~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_5cb5bc21226c41629ad7b2178f2e079a~mv2.webp",
+            alt: "Pristine vehicle paint restored to showroom quality after correction",
+          },
+          {
+            src: "/images/service-interior-exterior.jpg",
+            alt: "Ford Mustang GT with swirl-free paint after multi-stage correction",
+          },
+          {
+            src: "https://static.wixstatic.com/media/da9245_760f586cd8664697bb3ae1a94bb80806~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_760f586cd8664697bb3ae1a94bb80806~mv2.webp",
+            alt: "Professional paint correction detail showing deep color restoration",
+          },
+        ]}
       />
       </main>
       <Footer />
