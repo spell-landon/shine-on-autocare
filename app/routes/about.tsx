@@ -92,8 +92,8 @@ export default function About() {
               About Shine On Autocare
             </h1>
             <p className="mt-4 text-lg text-gray-300 leading-relaxed max-w-2xl">
-              We're a small, veteran-owned mobile detailing team that believes
-              your vehicle deserves more than a quick rinse. We bring real
+              We're a small, veteran-owned mobile detailing team. There's more
+              to good detailing than a quick rinse, and we bring real
               craftsmanship right to your driveway.
             </p>
           </div>

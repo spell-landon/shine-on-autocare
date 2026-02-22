@@ -51,7 +51,7 @@ const militaryValues = [
   {
     title: "Attention to Detail",
     description:
-      "In the military, details save lives. In detailing, they make the difference between good and exceptional. We notice what others miss and hold ourselves to the highest standard.",
+      "The military taught us that missing the small stuff costs you. We carry that same mindset into every job — checking and re-checking until it's right.",
   },
   {
     title: "Integrity",
@@ -66,12 +66,12 @@ const militaryValues = [
   {
     title: "Service Before Self",
     description:
-      "Our military service taught us to put others first. That same mindset drives how we treat every customer — your satisfaction matters more than anything else.",
+      "The military taught us to put the mission first and take care of people. That's how we run this business — we take care of you and your vehicle the same way.",
   },
   {
     title: "Excellence",
     description:
-      "We don't just meet expectations — we exceed them. Every vehicle that leaves our care looks better than the customer imagined. That's the standard we set for ourselves.",
+      "Good enough isn't good enough. We want every customer to be genuinely surprised by how much better their vehicle looks when we're done.",
   },
 ];
 
@@ -214,7 +214,7 @@ export default function VeteranOwned() {
                 <p className="mt-4 text-lg text-gray-500 leading-relaxed">
                   We offer a complete range of professional detailing services,
                   all performed at your location. From a quick interior refresh
-                  to full ceramic coating, we have you covered.
+                  to full ceramic coating, we do it all.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[

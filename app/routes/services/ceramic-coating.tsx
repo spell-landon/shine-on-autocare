@@ -61,7 +61,7 @@ const features = [
   {
     title: "Multi-Year Warranty",
     description:
-      "Every ceramic coating we apply comes with a warranty for your peace of mind. Depending on the package, you get 2 to 5 years of guaranteed protection backed by our commitment to quality.",
+      "Every ceramic coating we apply comes with a warranty for your peace of mind. Depending on the package, you get 2 to 5 years of guaranteed protection backed by our warranty and our word.",
   },
 ];
 

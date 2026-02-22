@@ -46,7 +46,7 @@ const features = [
   {
     title: "Machine Polish",
     description:
-      "A machine polish brings out the true depth of your paint by removing light swirl marks, water spots, and minor surface imperfections. This step is what takes your finish from clean to showroom-quality.",
+      "A machine polish brings out the true depth of your paint by removing light swirl marks, water spots, and minor surface imperfections. This step is what takes your finish from clean to like-new.",
   },
   {
     title: "Premium Wax Protection",
@@ -112,7 +112,7 @@ export default function ExteriorDetailing() {
           },
           {
             src: "/images/service-full-detail.jpg",
-            alt: "2023 Ford F-250 with showroom-quality exterior finish after detailing",
+            alt: "2023 Ford F-250 with a clean exterior finish after professional detailing",
           },
         ]}
       />

@@ -29,12 +29,12 @@ export const locations: LocationData[] = [
       "auto detailing Pleasanton TX, mobile detailing Pleasanton, ceramic coating Pleasanton TX, car detailing near me Pleasanton, veteran-owned detailing Pleasanton",
     h1: "Mobile Auto Detailing in Pleasanton, TX",
     heroDescription:
-      "Shine On Autocare is based right here in Pleasanton, TX. As your local mobile detailing team, we bring professional-grade results straight to your driveway — no drop-offs, no hassle.",
+      "Shine On Autocare is based right here in Pleasanton — the Cowboy Capital of the World. We bring professional detailing straight to your driveway. No drop-offs, no hassle.",
     aboutArea: [
-      "Pleasanton is our home base and where Shine On Autocare was founded. As the seat of Atascosa County, Pleasanton is a tight-knit South Texas community where word of mouth matters. That's why we treat every vehicle like it belongs to a neighbor — because it usually does.",
-      "The South Texas climate is tough on vehicles. Between the intense sun, caliche dust, and summer heat that can hit 100+ degrees, your car's paint and interior take a beating year-round. Regular detailing isn't just about looks — it's about protecting your investment from UV damage, oxidation, and the grit that works its way into every surface.",
-      "Whether you're on Oaklawn Road, near the high school, or out past the rodeo grounds, we come to you fully equipped and ready to work. Our mobile setup means you don't have to drive anywhere or wait around at a shop. We handle everything from a basic interior clean to full ceramic coating right at your home or office.",
-      "We're proud to be a veteran-owned business serving the community we live in. Our military background drives the discipline and attention to detail we bring to every job, and our roots in Pleasanton keep us grounded in the values that matter — honesty, hard work, and genuine care for our customers.",
+      "Pleasanton is home. This is where Shine On Autocare started, and it's the community we know best. You might see us parked on Oaklawn Road working on a truck, or out past the rodeo grounds buffing out a ranch rig. In a town built on rodeo heritage and small-town trust, our reputation is everything — and we earn it one vehicle at a time.",
+      "If you've driven the caliche roads around here, you know what they do to a paint job. Add in 100-degree summers and that South Texas sun beating down from April through October, and your vehicle's finish doesn't stand a chance without some protection. That's where ceramic coating and regular detailing come in — it's maintenance, not vanity.",
+      "We roll up to your house or your office with everything we need. Full interior steam clean, exterior polish, paint correction, ceramic coating — all of it happens on-site. You don't have to drive anywhere or rearrange your day around a detail shop's schedule.",
+      "Being veteran-owned isn't just a label we slap on the website. It's how we run the business — show up on time, do the job right, leave it better than we found it. Pleasanton is a place where a handshake still means something, and we plan to keep it that way.",
     ],
     distanceFromBase: "Home base",
     popularServices: [
@@ -71,12 +71,12 @@ export const locations: LocationData[] = [
       "auto detailing San Antonio TX, mobile detailing San Antonio, ceramic coating San Antonio, car detailing near me San Antonio, mobile car wash San Antonio, best auto detailer San Antonio",
     h1: "Mobile Auto Detailing in San Antonio, TX",
     heroDescription:
-      "Professional mobile detailing for the San Antonio area. We bring showroom-quality results to your home or office — ceramic coating, paint correction, interior and exterior detailing, and more.",
+      "Mobile detailing across the Alamo City. We drive to your home or office — ceramic coating, paint correction, full interior and exterior work. No drop-offs, no waiting rooms.",
     aboutArea: [
-      "San Antonio is the largest city in our service area and a market where vehicle owners expect top-tier results. From the Medical Center to Alamo Heights, Stone Oak to Southtown, we bring our fully equipped mobile unit to wherever you are in the city. No fighting traffic to drop your car off — we handle everything right in your driveway or parking spot.",
-      "With over 300 days of sunshine a year, San Antonio's UV exposure is one of the harshest in the country. That intense Texas sun fades paint, cracks leather, and deteriorates rubber and trim faster than most people realize. A professional ceramic coating or regular detailing schedule is the best way to protect your vehicle from the relentless heat and keep it looking sharp year-round.",
-      "We serve residential neighborhoods, office parks, and apartment complexes throughout San Antonio and the surrounding suburbs. Whether you're in the 78209, 78258, or 78245, we'll come to you. Many of our SA customers schedule us during their workday so their vehicle is freshly detailed by the time they head home.",
-      "As a veteran-owned business based in nearby Pleasanton, we bring small-town values and big-city quality to every job in San Antonio. Our repeat customers appreciate the consistency — same team, same standards, same attention to detail every single time.",
+      "San Antonio is a big city, and we cover a lot of it. Stone Oak, the Medical Center, Alamo Heights, Southtown, the neighborhoods around Lackland and Fort Sam Houston — we bring the whole mobile setup to your driveway or your office parking lot. You don't need to fight 1604 traffic or sit in some lobby flipping through old magazines. We come to you.",
+      "A lot of our SA customers are military families or folks working on base who schedule a detail during the workday. By the time they clock out, their vehicle looks like it just rolled off a dealership lot. That convenience is the whole point of mobile detailing in a city this spread out.",
+      "Over 300 days of sunshine a year sounds great until you see what it does to paint and leather. The UV here is brutal, and if you park outside — which most people do — your vehicle is taking damage every single day. Ceramic coating is the best defense we offer, and a regular detail schedule keeps the interior from turning into a dust bowl.",
+      "We're based in Pleasanton, about 35 miles south, but we built a big chunk of our business right here in San Antonio. Our SA customers come back because we're consistent. Same crew, same standards, no surprises.",
     ],
     distanceFromBase: "~35 miles from Pleasanton",
     popularServices: [
@@ -112,11 +112,11 @@ export const locations: LocationData[] = [
       "auto detailing Jourdanton TX, mobile detailing Jourdanton, car detailing Jourdanton Texas, ceramic coating Jourdanton",
     h1: "Mobile Auto Detailing in Jourdanton, TX",
     heroDescription:
-      "Serving Jourdanton and Atascosa County with professional mobile detailing. From daily drivers to ranch trucks, we bring the shine to your doorstep.",
+      "Jourdanton is right down Highway 16 from our home base. We'll bring the full mobile detailing setup to your door — five minutes away, not five zip codes.",
     aboutArea: [
-      "Jourdanton is just a short drive from our Pleasanton home base, making it one of the first communities we began serving. As the other main town in Atascosa County, Jourdanton shares the same small-town feel and rugged South Texas landscape that demands extra care for your vehicle's finish.",
-      "Between ranch roads, caliche dust, and summer heat, vehicles in Jourdanton take a real beating. Whether you're driving a work truck that hauls equipment or a family SUV that runs kids around town, regular detailing keeps your vehicle protected and looking good despite the conditions.",
-      "We serve all of Jourdanton and the surrounding rural areas. Our mobile setup means you don't need to drive to Pleasanton or San Antonio for a quality detail — we come to your home, ranch, or business with everything we need.",
+      "Jourdanton is the Atascosa County seat and one of our closest service areas — literally just a few miles up the road from Pleasanton. We were detailing vehicles here before we had a website. It's a small farming community where people know each other, and most of our Jourdanton customers came through word of mouth.",
+      "Trucks around here work hard. They haul trailers, run fence lines, and sit on caliche driveways baking in the sun. A full interior and exterior detail makes a real difference when your vehicle doubles as your office and your work site. We clean out the grit, treat the leather, and get the paint back to where it should be.",
+      "You don't need to drive to San Antonio for this. We pull up to your house or your business on Highway 16 with a full mobile rig — water, power, all our products. The whole job happens on-site, and you go about your day.",
     ],
     distanceFromBase: "~5 miles from Pleasanton",
     popularServices: [
@@ -145,11 +145,11 @@ export const locations: LocationData[] = [
       "auto detailing Floresville TX, mobile detailing Floresville, car detailing Floresville Texas, ceramic coating Floresville, Wilson County detailing",
     h1: "Mobile Auto Detailing in Floresville, TX",
     heroDescription:
-      "Professional mobile detailing for Floresville and Wilson County. We bring showroom-quality results to your driveway — no drop-offs needed.",
+      "Mobile detailing for the Peanut Capital of Texas. We drive out to Floresville and Wilson County so you don't have to drive anywhere.",
     aboutArea: [
-      "Floresville, the county seat of Wilson County, is known for its peanut festival and its strong community roots. Located just east of Pleasanton, it's well within our regular service area and one of the towns where we have a growing base of repeat customers.",
-      "Wilson County roads kick up plenty of dust and debris that settle on your vehicle's paint and work their way into the cabin. The combination of rural driving and intense South Texas sun means your vehicle needs consistent care to stay protected and looking good.",
-      "We serve Floresville residents and businesses with the same full range of services available to our Pleasanton and San Antonio customers — from a quick interior detail to full ceramic coating. Our mobile service means zero hassle for you.",
+      "Floresville has the Peanut Festival, a solid downtown, and a whole lot of Wilson County pride. It's also about 20 miles from our Pleasanton base, so we're out this way regularly. If you've seen our trailer parked in a driveway around town, that was us — and your neighbor's vehicle probably looked a lot better when we left.",
+      "The roads between Floresville and the surrounding ranches are dusty. That fine Wilson County grit gets into everything — your paint, your air vents, the seams of your seats. A real detail goes deeper than a car wash can. We steam clean interiors, clay bar the paint, and seal everything so it stays cleaner longer.",
+      "Ceramic coating is popular with our Floresville customers because it cuts down on how often you need a full wash. The coating repels water and dirt, so a quick rinse handles what used to take a full afternoon with a bucket and sponge. We do the full application on-site at your home or business.",
     ],
     distanceFromBase: "~20 miles from Pleasanton",
     popularServices: [
@@ -183,11 +183,11 @@ export const locations: LocationData[] = [
       "auto detailing Poteet TX, mobile detailing Poteet, car detailing Poteet Texas, ceramic coating Poteet",
     h1: "Mobile Auto Detailing in Poteet, TX",
     heroDescription:
-      "Professional mobile detailing serving Poteet and southern Atascosa County. From strawberry festival season to everyday driving, we keep your vehicle looking its best.",
+      "Mobile detailing in Poteet, TX — home of the Strawberry Festival and some seriously dusty trucks. We bring the detail to you.",
     aboutArea: [
-      "Poteet is famous for its Strawberry Festival, but it's also home to hardworking folks who take pride in their vehicles. Located in southern Atascosa County, Poteet is a natural extension of our Pleasanton service area and a community we're proud to serve.",
-      "Vehicles in and around Poteet face the same South Texas challenges — dust, heat, and UV exposure. Many of our Poteet customers drive trucks and SUVs that double as work vehicles and family haulers. Regular detailing helps maintain resale value and keeps the cabin comfortable for everyone.",
-      "Our mobile detailing unit is fully equipped to handle any service right at your Poteet home or business. No need to drive to San Antonio for a quality detail — we bring it to you.",
+      "Poteet is a small town with a big reputation, thanks to the Strawberry Festival that draws people from all over South Texas every April. But the rest of the year, it's a quiet rural community where trucks outnumber sedans and most vehicles live outside, not in a garage. That's exactly why mobile detailing makes sense here.",
+      "We see a lot of work trucks and SUVs in Poteet — rigs that haul feed, pull trailers, and carry the whole family to church on Sunday. A good detail isn't about making it look fancy. It's about getting the mud out of the floor mats, conditioning the dash before it cracks, and pulling a layer of oxidation off the paint so it actually shines again.",
+      "We're only about 15 miles from Poteet, so scheduling is easy and we don't charge extra to come out. Full interior, exterior, paint correction, ceramic coating — all done in your driveway. You stay home, we do the work.",
     ],
     distanceFromBase: "~15 miles from Pleasanton",
     popularServices: [
@@ -222,11 +222,11 @@ export const locations: LocationData[] = [
       "auto detailing Lytle TX, mobile detailing Lytle, car detailing Lytle Texas, ceramic coating Lytle, mobile car wash Lytle TX",
     h1: "Mobile Auto Detailing in Lytle, TX",
     heroDescription:
-      "Professional mobile detailing for Lytle and the I-35 corridor. Convenient, quality detailing that comes to your home or office.",
+      "Mobile detailing for Lytle, TX — right off I-35 between San Antonio and Laredo. We drive to you so you can skip the trip into the city.",
     aboutArea: [
-      "Lytle sits along the I-35 corridor between San Antonio and Laredo, making it a natural stop in our service area. Whether you're a local resident or your vehicle takes a beating from daily highway commutes, we bring the same professional results right to your doorstep.",
-      "I-35 traffic and construction mean your vehicle picks up road film, brake dust, and tar faster than usual. Our exterior detailing and paint protection services help combat the daily wear and keep your paint looking clean between details.",
-      "We serve all of Lytle and the surrounding area with our full menu of mobile detailing services. From a quick interior refresh to ceramic coating, we've got you covered without you having to drive to San Antonio.",
+      "Lytle is one of those I-35 corridor towns where everybody either commutes to San Antonio or works the land around here. Either way, vehicles take a beating. Highway miles pile on the road film, brake dust, and tar, and the ranch trucks aren't faring any better on the back roads. We handle both.",
+      "A lot of Lytle folks used to drive into SA for a decent detail. That's a 30-minute trip each way plus wait time — half your Saturday gone. We show up at your place with the full rig and do the work while you're home. Interior steam clean, full exterior wash and polish, ceramic coating, paint correction — whatever you need.",
+      "This is a small town with a rural, ranch-community feel, and we treat it that way. We're not some big franchise. We're a veteran-owned outfit from Pleasanton that does good work and shows up when we say we will. That's it.",
     ],
     distanceFromBase: "~20 miles from Pleasanton",
     popularServices: [
@@ -255,11 +255,11 @@ export const locations: LocationData[] = [
       "auto detailing Devine TX, mobile detailing Devine, car detailing Devine Texas, ceramic coating Devine, Medina County detailing",
     h1: "Mobile Auto Detailing in Devine, TX",
     heroDescription:
-      "Professional mobile detailing serving Devine and Medina County. Quality detailing at your doorstep — no drop-offs, no waiting.",
+      "Mobile detailing in Devine, TX — the Warhead City. We bring the full setup to your driveway in Medina County. No trip to San Antonio required.",
     aboutArea: [
-      "Devine is located along the I-35 corridor in Medina County, southwest of San Antonio. It's a growing community where residents appreciate the convenience of mobile services — especially when it means not having to drive 30+ minutes for a quality auto detail.",
-      "Like most South Texas towns, vehicles in Devine deal with constant dust, heat, and sun exposure. Our professional detailing services help protect your paint, interior, and overall vehicle condition against these relentless elements.",
-      "We bring our full range of services to Devine, including ceramic coating, paint correction, and complete interior and exterior detailing. Our mobile setup means everything happens at your location — home, office, or ranch.",
+      "Devine calls itself the Warhead City, and if you've driven through, you've probably noticed the missile display off the highway. It's a small Medina County town between San Antonio and the Eagle Ford Shale region, which means a lot of the trucks we see out here are working rigs — oil field dust, mud, the works. We clean them up right in your driveway.",
+      "Even if your vehicle never sees a job site, the Devine heat and sun will wear it down. Clear coat oxidizes, dashboards fade, and leather dries out. A ceramic coating stops most of that damage before it starts. For vehicles that are already showing wear, paint correction brings back the depth and color you thought was gone for good.",
+      "We're about 25 miles from Devine, and we come out regularly. No storefront, no lobby, no appointment at a shop across town. Just us, our mobile rig, and everything we need to do the full job at your location — home, ranch, or business.",
     ],
     distanceFromBase: "~25 miles from Pleasanton",
     popularServices: [
@@ -287,12 +287,12 @@ export const locations: LocationData[] = [
       "auto detailing Atascosa County, mobile detailing Atascosa County TX, car detailing Atascosa County, ceramic coating Atascosa County Texas",
     h1: "Mobile Auto Detailing in Atascosa County, TX",
     heroDescription:
-      "Serving every corner of Atascosa County with professional mobile detailing. Pleasanton, Jourdanton, Poteet, Charlotte, and everywhere in between.",
+      "We're based in Atascosa County and we detail every corner of it — Pleasanton, Jourdanton, Poteet, Charlotte, and all the ranch land in between.",
     aboutArea: [
-      "Atascosa County is our home territory. Based in Pleasanton — the county seat — Shine On Autocare was built to serve this community. We know the roads, we know the people, and we know exactly what the South Texas climate does to vehicles.",
-      "From the ranches south of Charlotte to the neighborhoods in Pleasanton and Jourdanton, Atascosa County vehicles deal with caliche dust, ranch roads, intense heat, and relentless UV exposure. These conditions break down paint, dry out leather, and leave interiors covered in a fine layer of grit that regular car washes can't touch.",
-      "Our mobile service covers the entire county. Whether you're in town or on a ranch road, we bring our fully equipped detailing unit to your location. No need to drive to San Antonio for professional-quality work — we deliver the same results right here at home.",
-      "We take pride in being a local, veteran-owned business that serves our own community. When you hire Shine On Autocare, you're not just getting a detail — you're supporting a neighbor who cares about doing the job right.",
+      "Atascosa County is ranching country. Spread-out communities, long stretches of highway, and a whole lot of trucks and SUVs that earn their keep. This is where Shine On Autocare was born, and we've detailed more vehicles in this county than we can count. If you live here, there's a good chance your neighbor has already used us.",
+      "The driving conditions out here are hard on vehicles. Caliche ranch roads coat everything in white dust. Summer heat warps dashboards and cooks clear coat. And because most people park outside — no garages out on the ranch — the UV damage adds up fast. A detail once or twice a year, paired with a ceramic coating, makes a real difference in how long your vehicle holds up.",
+      "We cover the whole county. It doesn't matter if you're in a subdivision in Pleasanton, on a property south of Charlotte, or out between Jourdanton and Poteet — we'll drive to you. That's the point of mobile detailing, and it makes a lot more sense than hauling your truck 40 minutes to San Antonio for the same service.",
+      "This is our community. We're veteran-owned, locally operated, and the kind of business that answers the phone when you call. We'd rather earn your repeat business by doing great work than by running ads.",
     ],
     distanceFromBase: "Home county",
     popularServices: [
@@ -329,11 +329,11 @@ export const locations: LocationData[] = [
       "auto detailing South San Antonio, mobile detailing South SA, car detailing south side San Antonio, ceramic coating South San Antonio TX",
     h1: "Mobile Auto Detailing in South San Antonio, TX",
     heroDescription:
-      "Professional mobile detailing for the south side of San Antonio. We're closer than you think — based in nearby Pleasanton, we cover South SA and the 410/I-35 South corridor.",
+      "South San Antonio is the closest part of the city to our Pleasanton base. We get here faster than most SA-based detailers, and the work speaks for itself.",
     aboutArea: [
-      "South San Antonio is the closest part of the city to our Pleasanton home base, making it one of the most convenient areas for us to serve. Whether you're near Brooks City Base, along the I-35 South corridor, or in the communities around Loop 410 South, we can typically get to you faster than most San Antonio-based detailers.",
-      "The south side of San Antonio is a growing, diverse community with a mix of established neighborhoods and new development. Vehicle owners here appreciate the convenience and value of mobile detailing — no driving across town, no waiting rooms, just quality results at your location.",
-      "We serve residential and commercial locations throughout South San Antonio. Many of our south side customers work at Lackland, Randolph, or the medical facilities along the 410 corridor and schedule details during their workday.",
+      "The south side is where San Antonio meets our part of the world. Coming up I-37 from Pleasanton, we're in the Brooks City-Base area in about 25 minutes — often faster than a detailer driving across San Antonio in traffic. That's why South SA was one of the first parts of the city where we started picking up regular customers.",
+      "This part of town is growing fast. New subdivisions going up, established neighborhoods holding strong, and a lot of people commuting along the I-35 South and Loop 410 corridors. Vehicles out here rack up miles and sit in the sun all day. A detail every few months keeps the interior fresh and the paint from fading out.",
+      "We have a good number of customers who work at Lackland or Fort Sam Houston and book us during the workday. They park it, we detail it, and by quitting time their vehicle looks better than the day they bought it. We also serve the residential areas, apartment complexes, and businesses all along the south side corridor.",
     ],
     distanceFromBase: "~25 miles from Pleasanton",
     popularServices: [

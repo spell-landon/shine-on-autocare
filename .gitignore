@@ -2,6 +2,15 @@
 .env
 /node_modules/
 
+# Project docs (not for repo)
+*brief*
+*Brief*
+Notes_From_Meeting.md
+SEO_Competitor_Audit.md
+Shine_On_Autocare_Project_Brief.md
+contract.md
+*competitor*
+
 # React Router
 /.react-router/
 /build/

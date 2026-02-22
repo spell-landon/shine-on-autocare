@@ -252,8 +252,8 @@ export default function BlogIndex() {
             Ready to Get Your Vehicle Detailed?
           </h2>
           <p className="mt-4 text-gray-500">
-            Whether you need a quick interior refresh or a full ceramic coating,
-            we've got you covered. Get in touch for a free quote.
+            From quick interior refreshes to full ceramic coatings, we do it
+            all. Get in touch for a free quote.
           </p>
           <div className="mt-6">
             <Link

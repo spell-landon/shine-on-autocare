@@ -103,7 +103,7 @@ export default function PaintCorrection() {
         gallery={[
           {
             src: "https://static.wixstatic.com/media/da9245_5cb5bc21226c41629ad7b2178f2e079a~mv2.png/v1/fill/w_600,h_400,fp_0.50_0.50,q_85,enc_avif,quality_auto/da9245_5cb5bc21226c41629ad7b2178f2e079a~mv2.webp",
-            alt: "Pristine vehicle paint restored to showroom quality after correction",
+            alt: "Vehicle paint restored to like-new finish after professional correction",
           },
           {
             src: "/images/service-interior-exterior.jpg",

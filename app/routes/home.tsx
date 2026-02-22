@@ -256,7 +256,7 @@ function Hero() {
 
           <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
             Professional auto detailing that comes to you. From a fresh wash to
-            premium ceramic coating protection, we bring showroom-quality
+            premium ceramic coating protection, we bring dealership-clean
             results to your driveway. Cars, trucks, RVs, and motorcycles.
           </p>
 
@@ -407,7 +407,7 @@ function Services() {
           </h2>
           <p className="mt-4 text-lg text-gray-500">
             Starting at just $65. From daily drivers to weekend toys, we deliver
-            showroom-quality results at your doorstep.
+            like-new results at your doorstep.
           </p>
         </div>
 
@@ -611,7 +611,7 @@ function WhyChooseUs() {
     {
       title: "100% Satisfaction",
       description:
-        "Not happy with the results? We'll re-detail any area at no extra charge. Your satisfaction is our mission.",
+        "Not happy with the results? We'll re-do it at no extra charge. We don't leave until you're happy.",
       icon: ThumbsUpIcon,
     },
   ];
@@ -722,7 +722,7 @@ function HowItWorks() {
             Getting Started Is Easy
           </h2>
           <p className="mt-4 text-lg text-gray-500">
-            Three simple steps to a showroom-quality vehicle, no drop-offs needed.
+            Three simple steps to a like-new vehicle, no drop-offs needed.
           </p>
         </div>
 
@@ -953,10 +953,9 @@ function CTASection() {
 
             <div className="mt-10 p-4 bg-white/5 rounded-xl border border-white/10">
               <p className="text-sm text-gray-400 leading-relaxed">
-                <strong className="text-white">Prefer to talk?</strong> We find
-                the best results come from a quick conversation. Call us and
-                we'll walk through your options and give you an honest quote,
-                no pressure and no upselling.
+                <strong className="text-white">Rather just call?</strong> We'll
+                pick up, talk through what you need, and give you a straight
+                price. No sales pitch.
               </p>
             </div>
           </div>
