@@ -214,7 +214,7 @@ export default function Home() {
 // ─── Hero Section ────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative pt-20 sm:pt-24 overflow-hidden">
+    <section data-hero className="relative pt-20 sm:pt-24 overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video

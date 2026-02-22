@@ -81,7 +81,7 @@ export default function VeteranOwned() {
       <Header />
       <main id="main-content">
         {/* Hero */}
-        <section className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
+        <section data-hero className="relative pt-20 sm:pt-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
             <div className="max-w-3xl">
               <Breadcrumb items={[{ label: "Veteran-Owned" }]} />
